@@ -11,17 +11,17 @@
 <body>
     <div class="container">
         <header>
-            <nav>
-                <a href="/">Home</a>
+            <nav class="pt-2 px-2">
+                <a href="/" class="mx-2">Home</a>
                 {{#if loggedIn}}
-                <a href="/dashboard">Dashboard</a>
+                <a href="/dashboard" class="mx-2">Dashboard</a>
                 <button id="logout">Logout</button>
                 {{else}}
-                <a href="/login">Login</a>
+                <a href="/login" class="mx-2">Login</a>
                 {{/if}}
             </nav>
-            <div class="card">
-                <h1>Tech Blog</h1>
+            <div class="page-title py-2 px-2">
+                <h1 class="card-header w-25 py-2">Tech Blog</h1>
             </div>
         </header>
         <main>

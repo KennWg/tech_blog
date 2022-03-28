@@ -1,5 +1,5 @@
 :root {
-  --primary: #ff3d2e;
+  --primary: #005b96;
   --secondary: #daeaef;
   --tertiary: #ff3d2e;
   --cardcolor: #0096FF;
@@ -36,7 +36,7 @@ h5,
 h6 {
   font-weight: 500;
   margin: 5px 0;
-  color: var(--dark);
+  color: var(--light);
   line-height: 1.25;
 }
 
@@ -71,6 +71,7 @@ p {
 
 a {
   text-decoration: none;
+  color: var(--light);
 }
 
 header {
@@ -83,6 +84,7 @@ nav {
   width: 100%;
   margin-top: 10px;
   justify-content: center;
+  color: var(--light);
 }
 
 nav a:hover {
@@ -132,7 +134,7 @@ nav a:hover {
 }
 
 .card-header {
-  color: var(--primary);
+  color: var(--secondary);
   background-color: var(--cardcolor);
   padding: 2.5%;
   border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
