@@ -71,6 +71,10 @@ p {
 
 a {
   text-decoration: none;
+  color: var(--dark);
+}
+
+nav a {
   color: var(--light);
 }
 
@@ -124,6 +128,16 @@ nav a:hover {
 
 .btn-inline {
   display: inline;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+button:hover {
+  color: var(--secondary);
+  background-color: var(--dark);
 }
 
 /* CARDS */
