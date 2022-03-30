@@ -1,1 +1,9 @@
-{{>post-info post}}
+<article class="post">
+    <div>
+        <h2>{{post.title}}</h2>
+        <h5>By {{post.user.username}} on {{post.created_at}}</h5>
+    </div>
+    <div class="mt-4">
+        <p>{{post.text}}</p>
+    </div>
+</article>
