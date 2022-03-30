@@ -117,17 +117,17 @@ nav a:hover {
   font-size: 1.3rem;
   text-decoration: none;
   padding: 0.5rem 1.2rem;
-  width: 100%;
+  width: 20%;
   margin: 5px 0;
   border-radius: var(--border-radius);
   color: var(--dark);
   outline: none;
-  background-color: var(--primary);
+  background-color: var(--cardcolor);
 }
 
 .btn:hover {
-  color: var(--dark);
-  background-color: var(--secondary);
+  color: var(--light);
+  background-color: var(--primary);
 }
 
 .btn-inline {
@@ -142,6 +142,13 @@ button {
 button:hover {
   color: var(--secondary);
   background-color: var(--dark);
+}
+
+form {
+  padding: 10;
+  width: 40%;
+  border: 3px solid var(--dark);
+  border-radius: var(--border-radius);
 }
 
 /* CARDS */
@@ -175,7 +182,7 @@ button:hover {
 }
 
 .form-input {
-  width: 100%;
+  width: 95%;
   padding: 3%;
   margin: 5px 0;
   font-size: 1.2rem;

@@ -9,7 +9,6 @@ async function signupFormHandler(event) {
     })
 
     if (!usernameCheck.ok && password) {
-        console.log('here!');
         const response = await fetch('/api/users', {
             method: 'post',
             body: JSON.stringify({
