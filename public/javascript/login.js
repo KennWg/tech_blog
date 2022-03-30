@@ -6,10 +6,11 @@ async function signupFormHandler(event) {
 
     const usernameCheck = await fetch(`/api/users/username/${username}`, {
         method: 'get',
-    });
+    })
 
-    if (!usernameCheck && password) {
-        await fetch('/api/users', {
+    if (!usernameCheck.ok && password) {
+        console.log('here!');
+        const response = await fetch('/api/users', {
             method: 'post',
             body: JSON.stringify({
                 username,
