@@ -96,7 +96,7 @@ router.post('/login', (req, res) => {
             return;
         }
 
-        const validPassword = data.checkPassword(req.body.password);
+        const validPassword = data.passwordCheck(req.body.password);
 
         if (!validPassword) {
             res.status(400).json({ message: 'Incorrect password!' });

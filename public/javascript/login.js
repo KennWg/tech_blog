@@ -8,7 +8,7 @@ async function signupFormHandler(event) {
         method: 'get',
     })
 
-    if (!usernameCheck.ok && password) {
+    if (!usernameCheck.ok && password.length > 4) {
         const response = await fetch('/api/users', {
             method: 'post',
             body: JSON.stringify({
@@ -20,6 +20,7 @@ async function signupFormHandler(event) {
 
         if (response.ok) {
             console.log('success');
+            document.location.replace('/login');
         } else {
             alert(response.statusText);
         }
