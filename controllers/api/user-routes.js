@@ -1,12 +1,12 @@
 const router = require('express').Router();
-const { User, Post } = require("../../models");
+const { User, Post, Comment } = require("../../models");
 
 //GET all route
 router.get('/', (req, res) => {
     User.findAll({
         attributes: { exclude: ['password'] }
     })
-        .then(dbUserData => res.json(dbUserData))
+        .then(data => res.json(data))
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
@@ -34,12 +34,12 @@ router.get('/:id', (req, res) => {
                 }
             }
         ]
-    }).then(dbUserData => {
-        if (!dbUserData) {
+    }).then(data => {
+        if (!data) {
             res.status(404).json({ message: 'No user found with this id' });
             return;
         }
-        res.json(dbUserData);
+        res.json(data);
     })
         .catch(err => {
             console.log(err);
@@ -54,12 +54,12 @@ router.get('/username/:username', (req, res) => {
         where: {
             username: req.params.username
         }
-    }).then(dbUserData => {
-        if (!dbUserData) {
+    }).then(data => {
+        if (!data) {
             res.status(404).json({message: 'No user found with this username'});
             return;
         }
-        res.json(dbUserData);
+        res.json(data);
     })
         .catch(err => {
             console.log(err);
@@ -73,13 +73,13 @@ router.post('/', (req, res) => {
         username: req.body.username,
         password: req.body.password
     })
-        .then(dbUserData => {
+        .then(data => {
             req.session.save(() => {
-                req.session.user_id = dbUserData.id;
-                req.session.username = dbUserData.username;
+                req.session.user_id = data.id;
+                req.session.username = data.username;
                 req.session.loggedIn = true;
 
-                res.json(dbUserData);
+                res.json(data);
             });
         })
 });
