@@ -69,7 +69,7 @@ router.put('/:id', userAuth, commentAuth, (req,res) => {
 });
 
 //DELETE comment
-router.put('/:id', userAuth, commentAuth, (req,res) => {
+router.delete('/:id', userAuth, commentAuth, (req,res) => {
     Comment.destroy({
         where: {
             id: req.params.id
