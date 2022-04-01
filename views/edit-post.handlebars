@@ -5,16 +5,14 @@
   </h2>
   <form class="edit-post-form">
     <div>
-      <input name="post-title" type="text" value="{{post.title}}" />
-      <span>({{format_url post.post_url}})</span>
+      <input name="post-title" class="form-input mx-2" type="text" value="{{post.title}}" />
+      <textarea name="post-text" class="form-textarea mx-2 mb-2" rows="5">{{post.text}}</textarea>
     </div>
     <div>
-      {{post.vote_count}} {{format_plural "point" post.vote_count}} by you on {{format_date post.created_at}}
-      |
       <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
     </div>
-    <button type="submit">Save post</button>
-    <button type="button" class="delete-post-btn">Delete post</button>
+    <button type="submit" class="btn mx-2">Save</button>
+    <button type="button" class="delete-post-btn btn mx-2">Delete</button>
   </form>
 </article>
 

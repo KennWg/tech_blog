@@ -36,6 +36,7 @@ router.get('/:id', (req, res) => {
 //POST post
 router.post('/', userAuth, (req, res) => {
     Post.create({
+        title: req.body.title,
         text: req.body.text,
         user_id: req.session.user_id,
         post_id: req.body.post_id
@@ -49,11 +50,16 @@ router.post('/', userAuth, (req, res) => {
 
 //EDIT post
 router.put('/:id', userAuth, postAuth, (req, res) => {
-    Post.update(req.body, {
-        where: {
-            id: req.params.id
-        }
-    })
+    Post.update(
+        {   
+            title: req.body.title,
+            text: req.body.text
+        },
+        {
+            where: {
+                id: req.params.id
+            }
+        })
         .then(data => {
             if (!data) {
                 res.status(404).json({ message: 'No post found with this id' });

@@ -8,6 +8,12 @@ router.get('/', userAuth, (req,res) => {
         where: {
             user_id: req.session.user_id
         },
+        attributes: [
+            'id',
+            'text',
+            'title',
+            'created_at'
+        ],
         include: [
             {
               model: Comment,
@@ -40,6 +46,12 @@ router.get('/', userAuth, (req,res) => {
 //Edit post
 router.get('/edit/:id', userAuth, (req,res) => {
     Post.findByPk(req.params.id, {
+        attributes: [
+            'id',
+            'text',
+            'title',
+            'created_at'
+        ],
         include: [
             {
               model: Comment,
@@ -56,12 +68,16 @@ router.get('/edit/:id', userAuth, (req,res) => {
         ]
     })
     .then(data => {
-        const posts = data.map(post => post.get({ plain: true }));
+        if(data){const post = data.get({ plain: true });
 
         res.render('edit-post', {
-            posts,
+            post,
             loggedIn: req.session.loggedIn
         });
+    }
+        else{
+            res.status(404).end();
+        }
     })
     .catch(err => {
         console.log(err);

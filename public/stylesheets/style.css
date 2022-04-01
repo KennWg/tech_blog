@@ -190,6 +190,10 @@ form {
   border-radius: var(--border-radius);
 }
 
+.form-textarea {
+  width: 95%
+}
+
 /* LAYOUT */
 .container {
   width: 85%;
