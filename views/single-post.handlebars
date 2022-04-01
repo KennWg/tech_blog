@@ -7,3 +7,21 @@
         <p>{{post.text}}</p>
     </div>
 </article>
+
+{{#if loggedIn}}
+<form class="comment-form">
+    <div>
+        <textarea name="comment-body" class="mx-2 mt-2 form-textarea" rows="5"></textarea>
+    </div>
+
+    <div>
+        <button type="submit" class="mx-2">Add Comment</button>
+    </div>
+</form>
+{{/if}}
+
+{{> comments post.comments}}
+
+{{#if loggedIn}}
+<script src="/javascript/comment.js"></script>
+{{/if}}
